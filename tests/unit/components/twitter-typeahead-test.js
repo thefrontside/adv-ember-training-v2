@@ -1,3 +1,5 @@
+/*global sinon */
+
 import {
   moduleForComponent,
   test
@@ -8,11 +10,16 @@ moduleForComponent('twitter-typeahead', 'TwitterTypeaheadComponent', {
   // needs: ['component:foo', 'helper:bar']
 });
 
+var spiedSourceFunc = sinon.spy(function(query, callback) {
+  return callback([query.toLowerCase(), query.toUpperCase()]);
+});
+
+
 test('it renders', function() {
   expect(2);
 
   // creates the component instance
-  var component = this.subject();
+  var component = this.subject({source: spiedSourceFunc});
   equal(component._state, 'preRender');
 
   // appends the component to the page

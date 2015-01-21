@@ -18,5 +18,9 @@ export default Ember.Component.extend({
         _this.sendAction("on-select", suggestion);
       });
     });
-  }).on('didInsertElement')
+  }).on('didInsertElement'),
+
+  destroyTypeahead: Ember.observer(function() {
+    this.typeahead.off("typeahead:selected");
+  }).on("willDestroyElement")
 });

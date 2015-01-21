@@ -7,6 +7,9 @@ export default Ember.Controller.extend({
   },
 
   matchStates: function(query, callback) {
-    callback(STATES);
+    callback(STATES.filter(function(state) {
+      var regex = new RegExp(query, 'i');
+      return regex.test(state.name) || regex.test(state["alpha-2"]);
+    }));
   }
 });

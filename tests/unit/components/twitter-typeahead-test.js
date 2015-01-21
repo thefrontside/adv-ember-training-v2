@@ -48,3 +48,28 @@ test('entering in keys', function() {
     equal(component.$(".tt-suggestion:last").text().trim(), "TE");
   });
 });
+
+test('selecting a response', function() {
+  var selectSpy = sinon.spy();
+  var component = this.subject({
+    source: spiedSourceFunc,
+    "on-select": "doSelect",
+    targetObject: {"doSelect": selectSpy}
+  });
+
+  this.append();
+
+  andThen(function() {
+    var typeahead = $(".tt-input");
+    typeahead.val("te");
+    typeahead.trigger("input");
+  });
+
+  andThen(function() {
+    component.$(".tt-suggestion:first").click();
+  });
+
+  andThen(function() {
+    ok(selectSpy.calledWith("te"));
+  });
+});

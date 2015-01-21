@@ -11,5 +11,10 @@ export default Ember.Controller.extend({
       var regex = new RegExp(query, 'i');
       return regex.test(state.name) || regex.test(state["alpha-2"]);
     }));
+  },
+  actions: {
+    selectState: function(state) {
+      console.log("state selected", state);
+    }
   }
 });

@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route("state-entry");
+  this.route("card-entry");
 });
 
 export default Router;

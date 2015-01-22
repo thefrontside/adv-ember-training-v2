@@ -1,4 +1,5 @@
 {{#cc-form card=card as |form|}}
+  <p>Card Number:</p>
   {{cc-input number=form.number type=form.type class="spec-cc-input"}}
   {{#if form.number}}
     Valid
@@ -6,8 +7,11 @@
     Invalid
   {{/if}}
   {{cc-badge type=form.type class="spec-cc-badge"}}
+  <p>Name:</p>
   {{input value=form.name class="spec-cc-name"}}
+  <p>Expiration:</p>
   {{input value=form.exp class="spec-cc-exp"}}
+  <p>CCV:</p>
   {{input value=form.ccv class="spec-cc-ccv"}}
-  <button class="spec-pay-button">Pay!</button>
+  <button class="spec-pay-button" {{bind-attr disabled="form.isInvalid"}}>Pay!</button>
 {{/cc-form}}

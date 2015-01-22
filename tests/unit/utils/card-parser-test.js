@@ -7,6 +7,23 @@ module('cardParser', {
   }
 });
 
+test('with a visa card number', function() {
+  parser.set("input", "424242");
+  equal(parser.get("formattedOutput"), "4242 42");
+
+  parser.set("input", "4242424242424242");
+  equal(parser.get("formattedOutput"), "4242 4242 4242 4242");
+});
+
+test('with an invalid number', function() {
+  parser.set("input", "02483204");
+  equal(parser.get("formattedOutput"), "0248 3204");
+
+  parser.set("input", "0248320438562728");
+  equal(parser.get("formattedOutput"), "0248 3204 3856 2728");
+});
+
+
 test('with an Amex card number', function() {
   parser.set("input", "37828224631");
   equal(parser.get("formattedOutput"), "3782 822463 1");

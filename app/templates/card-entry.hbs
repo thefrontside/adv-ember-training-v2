@@ -1,3 +1,13 @@
-{{cc-input number=cardNumber type=cardType}}
-{{cc-badge type=cardType}}
-<h4>{{cardNumber}}</h4>
+{{#cc-form card=card as |form|}}
+  {{cc-input number=form.number type=form.type class="spec-cc-input"}}
+  {{#if form.number}}
+    Valid
+  {{else}}
+    Invalid
+  {{/if}}
+  {{cc-badge type=form.type class="spec-cc-badge"}}
+  {{input value=form.name class="spec-cc-name"}}
+  {{input value=form.exp class="spec-cc-exp"}}
+  {{input value=form.ccv class="spec-cc-ccv"}}
+  <button class="spec-pay-button">Pay!</button>
+{{/cc-form}}

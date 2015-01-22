@@ -13,5 +13,9 @@
   {{input value=form.exp class="spec-cc-exp"}}
   <p>CCV:</p>
   {{input value=form.ccv class="spec-cc-ccv"}}
-  <button class="spec-pay-button" {{bind-attr disabled="form.isInvalid"}}>Pay!</button>
+  <button class="spec-pay-button" {{bind-attr disabled="form.isInvalid"}} {{action "submitCard" form}}>Pay!</button>
 {{/cc-form}}
+
+{{#if success}}
+  <h3 class="spec-success-message">Success!</h3>
+{{/if}}

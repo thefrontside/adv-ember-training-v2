@@ -54,3 +54,16 @@ test('visiting /enter-card and entering valid information', function() {
     assertDisabled();
   });
 });
+
+test('clicking submit on valid form', function() {
+  visit('/card-entry');
+  fillIn(".spec-cc-input", "4242424242424242");
+  fillIn(".spec-cc-name", "Bob Dobalina");
+  fillIn(".spec-cc-exp", "12/2016");
+  fillIn(".spec-cc-ccv", "123");
+  click(".spec-pay-button");
+
+  andThen(function() {
+    equal(Ember.$(".spec-success-message").text().trim(), "Success!");
+  });
+});

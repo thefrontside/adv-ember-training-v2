@@ -11,6 +11,10 @@ export default Ember.TextField.extend({
     });
   }),
 
+  setCreditCardType: Ember.observer('parser.type', function() {
+    this.set('type', this.get('parser.type'));
+  }),
+
   valueBinding: Ember.Binding.oneWay("parser.formattedOutput"),
 
   setNumber: Ember.observer("parser.validNumber", function() {

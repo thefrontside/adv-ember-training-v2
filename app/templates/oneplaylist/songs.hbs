@@ -1,1 +1,16 @@
+<h2>Songs</h2>
+<ul>
+  {{#each song in model}}
+    <li>{{song.name}}: {{song.artist}} <button {{action "addSongToPlaylist" song}}>+</button></li>
+  {{/each}}
+</ul>
+
+<h2>Playlist</h2>
+<ul>
+  {{#each item in currentUser.playlist.playlistItems}}
+    <li>{{item.song.name}}: {{item.song.artist}}
+      <button {{action "removePlaylistItem" item}}>-</button>
+    </li>
+  {{/each}}
+</ul>
 {{outlet}}

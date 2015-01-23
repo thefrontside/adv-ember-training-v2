@@ -1,7 +1,7 @@
 <h2>Songs</h2>
 <ul>
   {{#each song in model}}
-    <li>{{song.name}}: {{song.artist}} <button {{action "addSongToPlaylist" song}}>+</button></li>
+    <li class="spec-playlist-item">{{song.name}}: {{song.artist}} <button {{action "addSongToPlaylist" song}}>+</button></li>
   {{/each}}
 </ul>
 

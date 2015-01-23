@@ -5,7 +5,7 @@ import {
 
 moduleForModel('playlist-item', 'PlaylistItem', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ["model:song", "model:playlist"]
 });
 
 test('it exists', function() {

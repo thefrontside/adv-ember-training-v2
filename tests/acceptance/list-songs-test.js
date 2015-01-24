@@ -23,10 +23,27 @@ test('visiting /oneplaylist/songs', function() {
   });
 });
 
-test("shows all products", function() {
+test("shows all songs and playlist items", function() {
   visit("/oneplaylist/songs");
 
   andThen(function() {
+    equal($(".spec-song-item").length, 3);
+  });
+  andThen(function() {
     equal($(".spec-playlist-item").length, 3);
   });
+
+});
+
+test("adding to playlist", function() {
+  visit("/oneplaylist/songs");
+
+  andThen(function() {
+    click(".spec-add-item:first");
+  });
+
+  andThen(function() {
+    equal($(".spec-playlist-item").length, 4);
+  });
+
 });

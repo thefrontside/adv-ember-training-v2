@@ -1,4 +1,5 @@
 import Pretender from 'pretender';
+import Ember from 'ember';
 
 export function createServer() {
   return new Pretender(function() {
@@ -11,14 +12,15 @@ export function createServer() {
     this.get("/songs/:id", function(req) {
       return [200, {"Content-Type": "application/json"}, JSON.stringify(songsFixture(req.params.id))];
     });
-    this.post("/playlist/items/", function(req){
-      return [200, {"Content-Type": "application/json"}, JSON.stringify(songsFixture("3"))];
+    this.post("/playlist/items", function(req){
+      return [201, {"Content-Type": "application/json"}, JSON.stringify(playlistItemFixture())];
     });
     this.delete("/playlist/items/:id", function(req){
       return [200, {"Content-Type": "application/json"}, JSON.stringify({})];
     });
   });
 }
+
 
 export function userFixture() {
   return {
@@ -81,4 +83,8 @@ export function songsFixture(id) {
     var songsArray = Object.keys(songFixtures).map(function(k){return songFixtures[k];});
     return {songs: songsArray};
   }
+}
+
+export function playlistItemFixture(id) {
+  return {"playlist_item":{"id":5,"song_id":3,"playlist_id":2}};
 }

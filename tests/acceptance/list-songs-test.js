@@ -45,5 +45,16 @@ test("adding to playlist", function() {
   andThen(function() {
     equal($(".spec-playlist-item").length, 4);
   });
+});
 
+test("deleting from playlist", function() {
+  visit("/oneplaylist/songs");
+
+  andThen(function() {
+    click(".spec-remove-item:first");
+  });
+
+  andThen(function() {
+    equal($(".spec-playlist-item").length, 2);
+  });
 });

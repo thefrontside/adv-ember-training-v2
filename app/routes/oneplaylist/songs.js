@@ -10,6 +10,9 @@ export default Ember.Route.extend({
         song: song,
         playlist: this.modelFor("oneplaylist").get('playlist')
       }).save();
+    },
+    removePlaylistItem: function(item) {
+      item.destroyRecord();
     }
   }
 });

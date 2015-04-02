@@ -22,10 +22,8 @@
     <div class="cc-outer {{cardType}}">
       <div class="background">
         <div class="cc-inner">
-          {{! Replace the raw input below with the cc-input component below}}
-          <input class="cc-number" placeholder="Open card-entry.hbs">
-          {{!cc-input value=cardNumber type=cardType class="spec-cc-input cc-number" placeholder="4111111111111111"}}
 
+          {{cc-input value=cardNumber type=cardType class="spec-cc-input cc-number" placeholder="4111111111111111"}}
 
           {{! Insert these inputs once we have a cc-form component}}
           {{!input value=form.exp class="spec-cc-exp cc-exp" placeholder="EXP"}}

@@ -3,7 +3,6 @@ import {
   test,
   expect
 } from 'ember-qunit';
-import { skip } from 'qunit';
 import Ember from 'ember';
 
 moduleForComponent('cc-input', 'CcInputComponent', {
@@ -13,7 +12,7 @@ moduleForComponent('cc-input', 'CcInputComponent', {
 
 var action, component;
 
-skip('it renders', function(assert) {
+test('it renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
@@ -31,7 +30,7 @@ function setupComponent(test) {
   test.append();
 }
 
-skip("has no number property when the input is not valid", function(assert) {
+test("has no number property when the input is not valid", function(assert) {
   setupComponent(this);
 
   Ember.run(function() {
@@ -41,7 +40,7 @@ skip("has no number property when the input is not valid", function(assert) {
   assert.ok(component.$().is(":not(.is-valid)"), "does not contain is-valid class");
 });
 
-skip("sets the number property", function(assert) {
+test("sets the number property", function(assert) {
   setupComponent(this);
 
   Ember.run(function() {

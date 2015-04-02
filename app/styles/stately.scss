@@ -1,0 +1,18 @@
+$map_width: 500px;
+$map_bgd_color: #eeeeee;
+$map_border_radius: 0;
+
+/** Stately setup
+ *************************************/
+@import "_setup.scss";
+
+
+#plain {
+  color: #CCC;
+  .is-highlighted {
+    color: #ffa514;
+  }
+  .is-selected {
+    color: #7fef3e;
+  }
+} // #presidents

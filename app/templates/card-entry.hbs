@@ -1,0 +1,42 @@
+{{#if success}}
+  <h3 class="spec-success-message">Success!</h3>
+{{/if}}
+
+<div>
+  <h1>Enter Credit Card</h1>
+  {{!#cc-form card=creditCard as |form|}}
+
+    {{#unless cardNumber}}
+      <div class="validation-errors">
+        <h3>Please enter:</h3>
+        <ul class="validation-error-messages">
+          {{! Once we have cc-form, duplicate below for expIsValid, ccvIsValid, and nameIsValid}}
+          {{! #unless form.numberIsValid}}<li>A valid credit card number</li>{{!/unless}}
+        </ul>
+      </div>
+    {{else}}
+      Card is valid!
+    {{/unless}}
+
+    {{! Bind form.type class to cc-outer div once there's a form}}
+    <div class="cc-outer {{cardType}}">
+      <div class="background">
+        <div class="cc-inner">
+          {{! Replace the raw input below with the cc-input component below}}
+          <input class="cc-number" placeholder="Open card-entry.hbs">
+          {{!cc-input value=cardNumber type=cardType class="spec-cc-input cc-number" placeholder="4111111111111111"}}
+
+
+          {{! Insert these inputs once we have a cc-form component}}
+          {{!input value=form.exp class="spec-cc-exp cc-exp" placeholder="EXP"}}
+          {{!input value=form.ccv class="spec-cc-ccv cc-ccv" placeholder="CCV"}}
+          {{!input value=form.name class="spec-cc-name cc-name" placeholder="YOUR NAME"}}
+
+
+          <button class="spec-pay-button" {{action "submitCard" form}}>Pay!</button>
+        </div>
+      </div>
+    </div>
+
+  {{!/cc-form}}
+</div>

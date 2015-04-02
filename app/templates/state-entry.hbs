@@ -1,0 +1,17 @@
+<p>{{#link-to "application"}}Back to home{{/link-to}}</p>
+
+<!-- I'M THE MAP, I'M THE MAP, I'M THE MAP, I'M THE MAP, I'M THE MAP -->
+<div id="plain">
+  <ul class="stately">
+    {{#each state in model}}
+      <li {{bind-attr class="state.lowerCaseAbbrev state.isSelected state.isHighlighted"}}>
+        {{state.lowerCaseAbbrev}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
+<!-- Twitter Typeahead component -->
+<p>
+  {{! Include twitter-typeahead component here. Bind source to listAllStates and displayKey to formatState, and on-select to "selectState".}}
+</p>

@@ -1,0 +1,23 @@
+<div id="songs">
+  <h1>Songs</h1>
+  <div class="songs">
+    <h2>All songs</h2>
+    <ul class="playlist-items">
+      {{#each song in model}}
+        <li class="song-item spec-song-item">{{song.name}}: {{song.artist}} <button class="spec-add-item" {{action "addSongToPlaylist" song}}>+</button></li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="playlist">
+    <h2>Playlist</h2>
+    <ul class="playlist-items">
+      {{#each item in currentUser.playlist.playlistItems}}
+        <li class="playlist-item spec-playlist-item">{{item.song.name}}: {{item.song.artist}}
+          <button class="spec-remove-item" {{action "removePlaylistItem" item}}>-</button>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div style="clear:both;"></div>
+</div>

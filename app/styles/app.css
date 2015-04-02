@@ -1,0 +1,18 @@
+/*
+fs main #4e719f
+fs dark #3b407f
+fs light #588cb1
+*/
+html, body {
+  margin: 20px;
+}
+
+body {
+  padding: 20px;
+}
+
+input {
+  border-radius: 10%;
+  -moz-border-radius: 10%;
+  -webkit-border-radius: 10%;
+}

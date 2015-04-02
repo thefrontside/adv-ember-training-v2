@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'adv-training-v2',
+    modulePrefix: 'adv-ember-training',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

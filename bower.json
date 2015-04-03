@@ -14,5 +14,8 @@
     "qunit": "~1.17.1",
     "pretender": "0.1.0",
     "sinon": "http://sinonjs.org/releases/sinon-1.12.2.js"
+  },
+  "devDependencies": {
+    "typeahead.js": "~0.10.5"
   }
 }

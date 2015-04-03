@@ -1,8 +1,7 @@
 import Ember from 'ember';
 import {
   module,
-  test,
-  skip
+  test
 } from 'qunit';
 import startApp from 'adv-ember-training/tests/helpers/start-app';
 
@@ -17,7 +16,7 @@ module('Acceptance: EnterCard', {
   }
 });
 
-skip('visiting /enter-card and entering valid information', function(assert) {
+test('visiting /enter-card and entering valid information', function(assert) {
   visit('/card-entry');
 
   andThen(function() {
@@ -49,10 +48,15 @@ skip('visiting /enter-card and entering valid information', function(assert) {
 
   // Let's put an invalid expiration date in there and make sure it disables again
   // HINT: Look above to see how that'd be implemented.
+  fillIn(".spec-cc-exp", "6");
+  andThen(function() {
+    assert.equal(Ember.$(".spec-pay-button").prop("disabled"), true);
+  });
+
 
 });
 
-skip('clicking submit on valid form', function(assert) {
+test('clicking submit on valid form', function(assert) {
   visit('/card-entry');
   fillIn(".spec-cc-input", "4242424242424242");
   fillIn(".spec-cc-name", "Bob Dobalina");
@@ -61,6 +65,6 @@ skip('clicking submit on valid form', function(assert) {
   click(".spec-pay-button");
 
   andThen(function() {
-    // Let's assert that the .spec-success-message text says "Success!"
+    assert.equal(Ember.$(".spec-success-message").text().trim(), "Success!");
   });
 });

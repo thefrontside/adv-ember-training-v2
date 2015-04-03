@@ -5,17 +5,17 @@ export default Ember.Controller.extend({
 
   // UNCOMMENT AND BIND ME TO SOURCE FIRST (STEP 3)
   // Naive callback, bind this to `source` in state-entry.hbs
-  // listAllStates: Ember.computed("model", function() {
-  //   const states = this.get("model");
-  //   return function(query, callback) {
-  //     callback(states);
-  //   };
-  // }),
+  listAllStates: Ember.computed("model", function() {
+    const states = this.get("model");
+    return function(query, callback) {
+      callback(states);
+    };
+  }),
 
   // UNCOMMENT AND BIND ME TO DISPLAYKEY (STEP 3)
-  // formatState: function(state) {
-  //   return `${state.get("abbrev")}: ${state.get("name")}`;
-  // },
+  formatState: function(state) {
+    return `${state.get("abbrev")}: ${state.get("name")}`;
+  },
 
   // UNCOMMENT AND BIND ME TO SOURCE SECOND (STEP 4)
   // Filtering callback, bind this to `source` in state-entry.hbs

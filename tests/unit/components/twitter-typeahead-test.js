@@ -5,7 +5,6 @@ import {
   test,
   expect
 } from 'ember-qunit';
-import { skip } from 'qunit';
 import Ember from 'ember';
 
 moduleForComponent('twitter-typeahead', 'TwitterTypeaheadComponent', {
@@ -19,7 +18,7 @@ var spiedDisplayKeyFunc = sinon.spy(function(object) {
   return object.toString();
 });
 
-skip('it renders', function(assert) {
+test('it renders', function(assert) {
   assert.expect(2);
 
   // creates the component instance
@@ -34,7 +33,7 @@ skip('it renders', function(assert) {
   assert.equal(component._state, 'inDOM');
 });
 
-skip('entering in keys', function(assert) {
+test('entering in keys', function(assert) {
   assert.expect(3);
   var component = this.subject({
     source: spiedSourceFunc,
@@ -53,7 +52,7 @@ skip('entering in keys', function(assert) {
   });
 });
 
-skip('selecting a response', function(assert) {
+test('selecting a response', function(assert) {
   var selectSpy = sinon.spy();
   var component = this.subject({
     source: spiedSourceFunc,

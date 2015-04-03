@@ -4,9 +4,9 @@
 
 <div>
   <h1>Enter Credit Card</h1>
-  {{!#cc-form card=creditCard as |form|}}
+  {{#cc-form card=creditCard as |form|}}
 
-    {{#unless cardNumber}}
+    {{#unless form.number}}
       <div class="validation-errors">
         <h3>Please enter:</h3>
         <ul class="validation-error-messages">
@@ -19,16 +19,16 @@
     {{/unless}}
 
     {{! Bind form.type class to cc-outer div once there's a form}}
-    <div class="cc-outer {{cardType}}">
+    <div class="cc-outer {{form.type}}">
       <div class="background">
         <div class="cc-inner">
 
-          {{cc-input number=cardNumber type=cardType class="spec-cc-input cc-number" placeholder="4111111111111111"}}
+          {{cc-input number=form.number type=form.type class="spec-cc-input cc-number" placeholder="4111111111111111"}}
 
           {{! Insert these inputs once we have a cc-form component}}
-          {{!input value=form.exp class="spec-cc-exp cc-exp" placeholder="EXP"}}
-          {{!input value=form.ccv class="spec-cc-ccv cc-ccv" placeholder="CCV"}}
-          {{!input value=form.name class="spec-cc-name cc-name" placeholder="YOUR NAME"}}
+          {{input value=form.exp class="spec-cc-exp cc-exp" placeholder="EXP"}}
+          {{input value=form.ccv class="spec-cc-ccv cc-ccv" placeholder="CCV"}}
+          {{input value=form.name class="spec-cc-name cc-name" placeholder="YOUR NAME"}}
 
 
           <button class="spec-pay-button" {{action "submitCard" form}}>Pay!</button>
@@ -36,5 +36,5 @@
       </div>
     </div>
 
-  {{!/cc-form}}
+  {{/cc-form}}
 </div>

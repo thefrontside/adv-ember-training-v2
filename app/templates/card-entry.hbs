@@ -6,17 +6,19 @@
   <h1>Enter Credit Card</h1>
   {{#cc-form card=creditCard as |form|}}
 
-    {{#unless form.number}}
+    {{#if form.isInValid}}
       <div class="validation-errors">
         <h3>Please enter:</h3>
         <ul class="validation-error-messages">
           {{! Once we have cc-form, duplicate below for expIsValid, ccvIsValid, and nameIsValid}}
-          {{! #unless form.numberIsValid}}<li>A valid credit card number</li>{{!/unless}}
+          {{#unless form.numberIsValid}}
+            <li>A valid credit card number</li>
+          {{/unless}}
         </ul>
       </div>
     {{else}}
       Card is valid!
-    {{/unless}}
+    {{/if}}
 
     {{! Bind form.type class to cc-outer div once there's a form}}
     <div class="cc-outer {{form.type}}">
@@ -31,7 +33,7 @@
           {{input value=form.name class="spec-cc-name cc-name" placeholder="YOUR NAME"}}
 
 
-          <button class="spec-pay-button" {{action "submitCard" form}}>Pay!</button>
+          <button class="spec-pay-button" disabled={{form.isInvalid}} {{action "submitCard" form}}>Pay!</button>
         </div>
       </div>
     </div>

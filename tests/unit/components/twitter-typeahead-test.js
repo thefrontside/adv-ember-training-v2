@@ -74,8 +74,7 @@ test('selecting a response', function(assert) {
   });
 
   andThen(function() {
-    // Replace the assertion below.
     // Assert that selectSpy was called with argument "te"
-    assert.ok(false);
+    assert.ok(selectSpy.calledWith("te"));
   });
 });

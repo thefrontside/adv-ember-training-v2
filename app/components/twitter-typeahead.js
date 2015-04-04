@@ -13,5 +13,10 @@ export default Ember.Component.extend({
         self.sendAction("on-select", suggestion);
       });
     });
+  },
+
+  willDestroyElement: function() {
+    this.typeahead.off("typeahead:selected");
+    this._super.apply(this, arguments);
   }
 });

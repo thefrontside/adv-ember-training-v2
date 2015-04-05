@@ -11,8 +11,11 @@ export default Ember.Route.extend({
         song: song,
         playlist: this.modelFor("oneplaylist").get('playlist')
       }).save();
-    }
+    },
 
     // Next, we need a removePlaylistItem action that just calls destroyRecord()
+    removePlaylistItem: function(item) {
+      item.destroyRecord();
+    }
   }
 });

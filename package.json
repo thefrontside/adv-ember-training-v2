@@ -37,5 +37,10 @@
     "ember-export-application-global": "^1.0.2",
     "phantomjs": "^1.9.16",
     "ember-sinon": "0.0.3"
+  },
+  "ember-addon": {
+    "paths": [
+      "lib/fauxlytics"
+    ]
   }
 }

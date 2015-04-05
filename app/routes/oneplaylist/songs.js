@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model: function() {
     // Use classic .find() to grab all songs with Ember Data
+    return this.store.find("song");
   },
   actions: {
     addSongToPlaylist: function(song) {
